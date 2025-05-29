@@ -32,7 +32,7 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
-
+@Suppress("FunctionNaming")
 @Composable
 fun AppPosTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

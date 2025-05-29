@@ -2,10 +2,14 @@ package com.demate.apppos.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+private const val PURPLE_200 = 0xFFBB86FC
+private const val PURPLE_500 = 0xFF6200EE
+private const val PURPLE_700 = 0xFF3700B3
+private const val TEAL_200 = 0xFF03DAC5
+private const val TEAL_700 = 0xFF018786
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val Purple200 = Color(PURPLE_200)
+val Purple500 = Color(PURPLE_500)
+val Purple700 = Color(PURPLE_700)
+val Teal200 = Color(TEAL_200)
+val Teal700 = Color(TEAL_700)

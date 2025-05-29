@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("io.gitlab.arturbosch.detekt") version "1.23.1"
 }
 
 android {
@@ -36,6 +37,22 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+}
+
+detekt {
+    toolVersion = "1.23.1"
+    buildUponDefaultConfig = true
+    allRules = false
+    ignoreFailures = false
+    config.from("$rootDir/config/detekt/detekt.yml")
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
     }
 }
 

@@ -1,0 +1,89 @@
+# Detekt configuration file
+# Para mais detalhes: https://detekt.dev/docs/configurations/configuration/
+
+build:
+  maxIssues: 0
+  weights:
+    complexity: 2
+    LongParameterList: 1
+    style: 1
+  excludeCorrectable: false
+
+config:
+  validation: true
+
+processors:
+  active: true
+  exclude:
+    - 'FunctionCountProcessor'
+    - 'PropertyCountProcessor'
+    - 'ClassCountProcessor'
+
+console-reports:
+  active: true
+  exclude:
+    - 'ProjectStatisticsReport'
+
+output-reports:
+  active: true
+  exclude:
+    - 'ProjectStatisticsReport'
+
+style:
+  MagicNumber:
+    active: true
+    ignoreNumbers: ["-1", "0", "1", "2"]
+    ignoreHashCodeFunction: true
+  DataClassContainsFunctions:
+    active: true
+  ForbiddenImport:
+    active: true
+    imports:
+      - 'java.util.logging.Logger'
+      - 'kotlin.io.print'
+  OptionalUnit:
+    active: true
+
+complexity:
+  LargeClass:
+    active: true
+    threshold: 300
+  LongMethod:
+    active: true
+    threshold: 30
+  LongParameterList:
+    active: true
+    functionThreshold: 6
+    constructorThreshold: 6
+  ComplexInterface:
+    active: true
+    threshold: 10
+
+naming:
+  VariableNaming:
+    active: true
+    variablePattern: '^[a-z][A-Za-z0-9]*$'
+  ClassNaming:
+    active: true
+    classPattern: '^[A-Z][a-zA-Z0-9]*$'
+  FunctionNaming:
+    active: true
+    functionPattern: '^[a-z][A-Za-z0-9]*$'
+
+potential-bugs:
+  DuplicateCaseInWhenExpression:
+    active: true
+  UnreachableCode:
+    active: true
+
+comments:
+  CommentOverPrivateFunction:
+    active: false
+
+exceptions:
+  SwallowedException:
+    active: true
+  PrintStackTrace:
+    active: true
+
+

@@ -25,3 +25,5 @@ jobs:
       - name: Testar
         run: ./gradlew test
 
+      - name: Análise estática com Detekt
+        run: ./gradlew detekt --continue
