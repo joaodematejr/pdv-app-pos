@@ -1,5 +1,8 @@
 # 🔖 PDV Firebase Open Source (Android Nativo)
 
+![Android CI](https://github.com/joaodematejr/pdv-app-pos/actions/workflows/android-build.yml/badge.svg)
+
+
 Um sistema de Ponto de Venda (PDV) open source moderno, desenvolvido em **Android nativo com Kotlin**, totalmente integrado ao **Firebase**. Cada comerciante pode usar seu próprio projeto Firebase para controlar seus dados, sem depender de servidores de terceiros.
 
 ---
