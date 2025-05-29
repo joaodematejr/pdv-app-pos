@@ -31,6 +31,12 @@ jobs:
       - name: Análise estática com Detekt
         run: ./gradlew detekt --continue
 
+      - name: Upload Detekt Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: detekt-report
+          path: app/build/reports/detekt
+
       - name: Gerar APK (assembleDebug)
         run: ./gradlew assembleDebug
 
