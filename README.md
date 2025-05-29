@@ -1,7 +1,8 @@
 # 🔖 PDV Firebase Open Source (Android Nativo)
 
 ![Android CI](https://github.com/joaodematejr/pdv-app-pos/actions/workflows/android-build.yml/badge.svg)
-
+![License](https://img.shields.io/github/license/joaodematejr/pdv-app-pos)
+![Language](https://img.shields.io/github/languages/top/joaodematejr/pdv-app-pos)
 
 Um sistema de Ponto de Venda (PDV) open source moderno, desenvolvido em **Android nativo com Kotlin**, totalmente integrado ao **Firebase**. Cada comerciante pode usar seu próprio projeto Firebase para controlar seus dados, sem depender de servidores de terceiros.
 
@@ -36,5 +37,11 @@ Um sistema de Ponto de Venda (PDV) open source moderno, desenvolvido em **Androi
 ### 1. Clone o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/pdv-firebase-open-source.git
+git clone https://github.com/joaodematejr/pdv-app-pos.git
 cd pdv-firebase-open-source
+
+### 2. Configure o Firebase
+
+- Crie um projeto no [Firebase Console](https://console.firebase.google.com/)
+- Baixe o arquivo `google-services.json` e coloque dentro de `app/`
+- Verifique as regras de Firestore e Authentication no console
