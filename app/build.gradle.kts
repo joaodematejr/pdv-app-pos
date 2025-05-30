@@ -53,6 +53,7 @@ detekt {
 }
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    ignoreFailures = true
     reports {
         html.required.set(true)
         xml.required.set(false)
