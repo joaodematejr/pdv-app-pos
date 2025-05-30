@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
+    //Firebase
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -17,6 +19,7 @@ android {
         versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders["appAuthRedirectScheme"] = "com.demate.apppos"
     }
 
     buildTypes {
@@ -73,4 +76,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
+    //Leak Canary
+    debugImplementation(libs.leakcanary.android)
+    //SplashScreen
+    implementation(libs.androidx.core.splashscreen)
+    //Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
 }
