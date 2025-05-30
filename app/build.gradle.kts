@@ -43,13 +43,14 @@ android {
     }
 }
 
-//detekt {
-//    toolVersion = "1.23.1"
-//    buildUponDefaultConfig = true
-//    allRules = false
-//    ignoreFailures = false
-//    config.from("$rootDir/config/detekt/detekt.yml")
-//}
+detekt {
+    ignoreFailures = true
+    toolVersion = "1.23.1"
+    buildUponDefaultConfig = true
+    allRules = false
+    ignoreFailures = false
+    config.from("$rootDir/config/detekt/detekt.yml")
+}
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     reports {
