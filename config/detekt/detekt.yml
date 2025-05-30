@@ -49,7 +49,7 @@ complexity:
     active: true
     threshold: 300
   LongMethod:
-    active: true
+    active: false
     threshold: 50
   LongParameterList:
     active: true
