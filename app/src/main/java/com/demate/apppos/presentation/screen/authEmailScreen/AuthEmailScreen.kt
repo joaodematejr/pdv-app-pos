@@ -32,15 +32,14 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.demate.apppos.presentation.navigation.AppScreens
 
 @Composable
 fun AuthEmailScreen(
     navController: NavHostController,
-    viewModel: AuthViewModel = viewModel(),
-    modifier: Modifier = Modifier
+    viewModel: AuthViewModel = hiltViewModel(),
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -51,20 +50,20 @@ fun AuthEmailScreen(
 
     LaunchedEffect(uiState) {
         when (uiState) {
-            is AuthUiState.Success -> {
+            is AuthResult.Success -> {
                 navController.navigate(AppScreens.HOME.name) {
                     //popUpTo(AppScreens.AUTH_EMAIL.name) { inclusive = true }
                 }
             }
-            is AuthUiState.Error -> {
-                Toast.makeText(context, (uiState as AuthUiState.Error).message, Toast.LENGTH_LONG).show()
+            is AuthResult.Error -> {
+                Toast.makeText(context, (uiState as AuthResult.Error).message, Toast.LENGTH_LONG).show()
             }
             else -> Unit
         }
     }
 
     Column(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -123,10 +122,10 @@ fun AuthEmailScreen(
                 }
             },
             enabled = email.isNotEmpty() && password.isNotEmpty() &&
-                    uiState !is AuthUiState.Loading,
+                    uiState !is AuthResult.Loading,
             modifier = Modifier.fillMaxWidth()
         ) {
-            if (uiState is AuthUiState.Loading) {
+            if (uiState is AuthResult.Loading) {
                 CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
             } else {
                 Text(if (isCreatingAccount) "Criar Conta" else "Entrar")
