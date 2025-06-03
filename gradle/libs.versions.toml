@@ -2,6 +2,7 @@
 agp = "8.10.1"
 coreSplashscreen = "1.0.1"
 firebaseBom = "33.14.0"
+firebaseFirestoreKtx = "25.1.4"
 hiltAndroid = "2.56.2"
 hiltAndroidCompiler = "2.56.2"
 kotlin = "2.1.10"
@@ -18,6 +19,8 @@ hiltNavigationCompose = "1.2.0"
 googleServices = "4.4.2"
 ksp = "2.1.21-2.0.1"
 detekt = "1.23.1"
+firebaseCrashlytics = "3.0.3"
+firebasePerf = "1.4.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -26,6 +29,10 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
+firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+firebase-perf = { module = "com.google.firebase:firebase-perf" }
+google-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -52,3 +59,5 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
+firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebasePerf" }

@@ -3,9 +3,8 @@ package com.demate.apppos.presentation.navigation
 enum class AppScreens {
     SPLASH_SCREEN,
     HOME,
-    LOGIN,
-    AUTH_PHONE,
     AUTH_EMAIL,
+    COMPANY_REGISTRATION,
     REGISTER,
     FORGOT_PASSWORD,
     PROFILE,
@@ -23,6 +22,8 @@ enum class AppScreens {
         fun fromRoute(route: String?): AppScreens = when (route?.substringBefore("/")) {
             SPLASH_SCREEN.name -> SPLASH_SCREEN
             AUTH_EMAIL.name -> AUTH_EMAIL
+            HOME.name -> HOME
+            COMPANY_REGISTRATION.name -> COMPANY_REGISTRATION
             else -> throw IllegalArgumentException("Route $route is not recognized.")
         }
 

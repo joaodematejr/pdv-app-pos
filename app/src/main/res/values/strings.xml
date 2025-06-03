@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">app pos</string>
+    <string name="welcome_message">Welcome to the app!</string>
+    <string name="create_account">Criar Conta</string>
+    <string name="login">Login</string>
+    <string name="name_hint">Digite seu nome</string>
+    <string name="email_hint">Digite seu email</string>
+    <string name="phone_hint">Digite seu telefone</string>
+    <string name="password_hint">Digite sua senha</string>
+    <string name="confirm_password_hint">Confirme sua senha</string>
+    <string name="invalid_email_format">O formato do email é inválido</string>
+    <string name="passwords_dont_match">As senhas não coincidem</string>
+    <string name="hide_password">Ocultar Senha</string>
+    <string name="show_password">Mostrar Senha</string>
+    <string name="enter">Entrar</string>
+    <string name="already_have_account">Já tem uma conta? Faça login</string>
+    <string name="no_account">Não tem uma conta? Cadastre-se</string>
+    <string name="error_checking_company">Erro ao verificar empresa</string>
+    <string name="error_creating_user">Falha ao criar usuário</string>
+    <string name="invalid_email_or_password">Email ou senha inválidos</string>
+    <string name="user_not_found">Usuário não encontrado</string>
+    <string name="login_error">Erro ao fazer login</string>
+    <string name="unknown_error">Erro desconhecido</string>
+    <string name="invalid_email">E-mail inválido</string>
+    <string name="incorrect_password">Senha incorreta</string>
+    <string name="user_not_found_message">Usuário não encontrado. Verifique seu email e senha.</string>
+    <string name="user_disabled">Usuário desativado</string>
+    <string name="email_already_in_use">E-mail já cadastrado. Tente outro.</string>
+    <string name="weak_password">Senha muito fraca. Use uma senha mais forte.</string>
+    <string name="authentication_error">Erro de autenticação. Tente novamente.</string>
 </resources>

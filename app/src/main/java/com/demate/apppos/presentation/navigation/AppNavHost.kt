@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.demate.apppos.presentation.screen.authEmailScreen.AuthEmailScreen
+import com.demate.apppos.presentation.screen.companyRegistrationScreen.CompanyRegistrationScreen
 import com.demate.apppos.presentation.screen.homeScreen.HomeScreen
 import com.demate.apppos.presentation.screen.splashScreen.SplashScreen
 
@@ -17,6 +18,9 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
         }
         composable(AppScreens.AUTH_EMAIL.name) {
             AuthEmailScreen(navController = navController)
+        }
+        composable(AppScreens.COMPANY_REGISTRATION.name) {
+            CompanyRegistrationScreen(navController = navController)
         }
         composable(AppScreens.HOME.name) {
             HomeScreen(navController = navController)

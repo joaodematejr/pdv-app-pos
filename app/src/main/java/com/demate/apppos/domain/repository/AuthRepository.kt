@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
     fun signInWithEmail(email: String, password: String): Flow<AuthResult>
-    fun createAccountWithEmail(email: String, password: String): Flow<AuthResult>
+    fun createAccountWithEmail(name: String, phone: String, email: String, password: String): Flow<AuthResult>
     fun isUserLoggedIn(): Boolean
+    fun checkUserHasCompany(): Flow<Boolean>
 }
