@@ -29,4 +29,12 @@
     <string name="weak_password">Senha muito fraca. Use uma senha mais forte.</string>
     <string name="authentication_error">Erro de autenticação. Tente novamente.</string>
     <string name="device_not_compatible">Este dispositivo não é compatível com Google Play Services</string>
+    <string name="company_registration">Registro de Empresa</string>
+    <string name="company_name_hint">Digite o nome da empresa</string>
+    <string name="cnpj_hint">Digite o CNPJ da empresa</string>
+    <string name="address_hint">Digite o endereço da empresa</string>
+    <string name="city_hint">Digite a cidade da empresa</string>
+    <string name="state_hint">Digite o estado da empresa</string>
+    <string name="phone_number_hint">Digite o número de telefone</string>
+    <string name="register_company">Registrar Empresa</string>
 </resources>
