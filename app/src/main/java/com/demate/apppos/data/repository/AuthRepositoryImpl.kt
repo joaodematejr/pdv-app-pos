@@ -36,8 +36,9 @@ class AuthRepositoryImpl @Inject constructor(
         trySend(AuthResult.Loading)
 
         auth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener {
-                trySend(AuthResult.Success)
+            .addOnSuccessListener { authResult ->
+                val user = authResult.user
+                trySend(AuthResult.Success(user))
             }
             .addOnFailureListener { e ->
                 val errorMessage = when (e) {
@@ -79,7 +80,7 @@ class AuthRepositoryImpl @Inject constructor(
                     .document(user.uid)
                     .set(userData)
                     .await()
-                emit(AuthResult.Success)
+                emit(AuthResult.Success(user))
             } else {
                 emit(AuthResult.Error(application.getString(R.string.error_creating_user)))
             }

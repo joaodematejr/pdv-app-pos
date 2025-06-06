@@ -1,7 +1,9 @@
 package com.demate.apppos.presentation.screen.companyRegistrationScreen
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.demate.apppos.R
 import com.demate.apppos.data.session.SessionManager
 import com.demate.apppos.domain.model.Company
 import com.demate.apppos.domain.repository.CompanyRepository
@@ -15,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CompanyRegistrationViewModel @Inject constructor(
     private val companyRepository: CompanyRepository,
-    private val sessionManager: SessionManager
+    private val sessionManager: SessionManager,
+    private val application: Application,
 ) : ViewModel() {
 
     private val _registrationState = MutableStateFlow<RegistrationState>(RegistrationState.Idle)
@@ -55,8 +58,9 @@ class CompanyRegistrationViewModel @Inject constructor(
                     }
 
                     is Resource.Error -> {
+                        val errorMessage = application.getString(R.string.unknown_error)
                         _registrationState.value =
-                            RegistrationState.Error(result.message ?: "Erro desconhecido")
+                            RegistrationState.Error(result.message ?: errorMessage)
                     }
                 }
             }

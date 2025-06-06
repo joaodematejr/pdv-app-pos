@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.demate.apppos.R
+import com.demate.apppos.data.session.SessionManager
 import com.demate.apppos.domain.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +15,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     private val authRepository: AuthRepository,
-    private val application: Application
+    private val application: Application,
+    private val sessionManager: SessionManager
 ) : ViewModel() {
 
 
@@ -30,6 +32,12 @@ class AuthViewModel @Inject constructor(
                 _uiState.value = result
 
                 if (result is AuthResult.Success) {
+                    sessionManager.saveLoginSession(
+                        userId = result.user?.uid ?: "",
+                        username = result.user?.displayName ?: "",
+                        email = email,
+                        token = result.user?.getIdToken(false)?.result?.token ?: ""
+                    )
                     checkUserHasCompany()
                 }
             }
