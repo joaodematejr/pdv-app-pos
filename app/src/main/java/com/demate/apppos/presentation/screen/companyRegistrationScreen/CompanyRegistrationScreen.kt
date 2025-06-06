@@ -1,5 +1,6 @@
 package com.demate.apppos.presentation.screen.companyRegistrationScreen
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,26 +11,36 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.demate.apppos.R
 
 @Composable
-fun CompanyRegistrationScreen(navController: NavHostController) {
+fun CompanyRegistrationScreen(
+    navController: NavHostController,
+    viewModel: CompanyRegistrationViewModel = hiltViewModel()
+) {
     var companyName by remember { mutableStateOf("") }
     var cnpj by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
@@ -37,6 +48,34 @@ fun CompanyRegistrationScreen(navController: NavHostController) {
     var state by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
+
+    val registrationState by viewModel.registrationState.collectAsState()
+    val context = LocalContext.current
+
+
+    if (registrationState is RegistrationState.Loading) {
+        LoadingDialog()
+    }
+
+    // Observar o estado de registro
+    LaunchedEffect(registrationState) {
+        when (registrationState) {
+            is RegistrationState.Success -> {
+                Toast.makeText(context, "Empresa cadastrada com sucesso!", Toast.LENGTH_SHORT)
+                    .show()
+                navController.navigate("home") {
+                    popUpTo("companyRegistration") { inclusive = true }
+                }
+            }
+
+            is RegistrationState.Error -> {
+                val errorMessage = (registrationState as RegistrationState.Error).message
+                Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
+            }
+
+            else -> {}
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -137,12 +176,47 @@ fun CompanyRegistrationScreen(navController: NavHostController) {
         )
 
         Button(
-            onClick = { /* Salvar os dados e navegar */ },
+            onClick = {
+                viewModel.registerCompany(
+                    name = companyName,
+                    cnpj = cnpj,
+                    address = address,
+                    city = city,
+                    state = state,
+                    phone = phone,
+                    email = email
+                )
+            },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 16.dp)
+                .padding(vertical = 16.dp),
+            enabled = companyName.isNotBlank() && cnpj.isNotBlank()
         ) {
             Text(stringResource(R.string.register_company))
+        }
+    }
+}
+
+
+@Composable
+fun LoadingDialog() {
+    Dialog(onDismissRequest = { }) {
+        Surface(
+            shape = MaterialTheme.shapes.medium,
+            color = MaterialTheme.colorScheme.surface
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                CircularProgressIndicator()
+                Text(
+                    text = "Registrando empresa...",
+                    modifier = Modifier.padding(top = 16.dp)
+                )
+            }
         }
     }
 }

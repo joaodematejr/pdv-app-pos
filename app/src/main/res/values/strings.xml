@@ -34,7 +34,10 @@
     <string name="cnpj_hint">Digite o CNPJ da empresa</string>
     <string name="address_hint">Digite o endereço da empresa</string>
     <string name="city_hint">Digite a cidade da empresa</string>
-    <string name="state_hint">Digite o estado da empresa</string>
+    <string name="state_hint">Estado</string>
     <string name="phone_number_hint">Digite o número de telefone</string>
     <string name="register_company">Registrar Empresa</string>
+    <string name="error_registering_company">Erro ao registrar empresa</string>
+    <string name="company_not_found">Empresa não encontrada</string>
+    <string name="error_updating_company">Erro ao atualizar empresa</string>
 </resources>
