@@ -28,4 +28,5 @@
     <string name="email_already_in_use">E-mail já cadastrado. Tente outro.</string>
     <string name="weak_password">Senha muito fraca. Use uma senha mais forte.</string>
     <string name="authentication_error">Erro de autenticação. Tente novamente.</string>
+    <string name="device_not_compatible">Este dispositivo não é compatível com Google Play Services</string>
 </resources>
