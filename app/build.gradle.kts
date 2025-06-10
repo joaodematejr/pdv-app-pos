@@ -13,12 +13,12 @@ plugins {
 
 android {
     namespace = "com.demate.apppos"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.demate.apppos"
         minSdk = 25
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 100
         versionName = "1.0.0"
 
@@ -83,7 +83,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     //Navigation
-    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
     //Leak Canary
     debugImplementation(libs.leakcanary.android)
     //SplashScreen
