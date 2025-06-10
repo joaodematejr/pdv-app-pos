@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.demate.apppos.presentation.navigation.AppNavHost
-import com.demate.apppos.presentation.theme.AppPosTheme
+import com.demate.apppos.presentation.theme.ThemeExpressive
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         enableEdgeToEdge()
         setContent {
-            AppPosTheme {
+            ThemeExpressive {
                 AppNavHost()
             }
         }

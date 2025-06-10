@@ -7,11 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -163,12 +160,12 @@ fun AuthEmailScreen(
             ),
             trailingIcon = {
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(
-                        if (passwordVisible) Icons.Default.CheckCircle else Icons.Default.CheckCircle,
-                        contentDescription = if (passwordVisible) stringResource(R.string.hide_password) else stringResource(
-                            R.string.show_password
-                        )
-                    )
+                    //Icon(
+                    //    if (passwordVisible) Icons.Default.CheckCircle else Icons.Default.CheckCircle,
+                    //    contentDescription = if (passwordVisible) stringResource(R.string.hide_password) else stringResource(
+                    //        R.string.show_password
+                    //    )
+                    //)
                 }
             },
             modifier = Modifier
@@ -191,12 +188,12 @@ fun AuthEmailScreen(
                 ),
                 trailingIcon = {
                     IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                        Icon(
-                            if (passwordVisible) Icons.Default.CheckCircle else Icons.Default.CheckCircle,
-                            contentDescription = if (passwordVisible) stringResource(R.string.hide_password) else stringResource(
-                                R.string.show_password
-                            )
-                        )
+                        //Icon(
+                        //    if (passwordVisible) Icons.Default.CheckCircle else Icons.Default.CheckCircle,
+                        //    contentDescription = if (passwordVisible) stringResource(R.string.hide_password) else stringResource(
+                        //        R.string.show_password
+                        //    )
+                        //)
                     }
                 },
                 modifier = Modifier
