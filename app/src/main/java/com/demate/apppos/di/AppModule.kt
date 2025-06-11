@@ -9,6 +9,9 @@ import com.demate.apppos.domain.repository.AuthRepository
 import com.demate.apppos.domain.repository.CompanyRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestoreSettings
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,7 +39,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFirestore(): FirebaseFirestore = FirebaseFirestore.getInstance()
+    fun provideFirestore(): FirebaseFirestore {
+        return Firebase.firestore.apply {
+            firestoreSettings = firestoreSettings {
+                isPersistenceEnabled = true
+                cacheSizeBytes = 100 * 1024 * 1024 // 100MB
+            }
+        }
+    }
 
     @Provides
     @Singleton
@@ -52,5 +62,6 @@ object AppModule {
     fun provideSessionManager(@ApplicationContext context: Context): SessionManager {
         return SessionManager(context)
     }
+
 
 }
